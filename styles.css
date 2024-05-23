@@ -1,22 +1,60 @@
 body {
-    background: #ffe6e6;
+    background: #f7d7c4;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
     font-family: 'Arial', sans-serif;
+    animation: fadeIn 1s ease-in;
+    overflow: hidden;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 .container {
+    position: relative;
     text-align: center;
-    background: white;
-    padding: 1em;
+    background: #fff8f0;
+    padding: 2em;
     border-radius: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     width: 90%;
     max-width: 400px;
     margin: auto;
+    transform: scale(0);
+    animation: scaleUp 0.5s forwards, colorChange 10s infinite alternate;
+}
+
+@keyframes scaleUp {
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes colorChange {
+    0% {
+        background-color: #fff8f0;
+    }
+    25% {
+        background-color: #ffe4e1;
+    }
+    50% {
+        background-color: #ffddcc;
+    }
+    75% {
+        background-color: #ffccbb;
+    }
+    100% {
+        background-color: #ffc8aa;
+    }
 }
 
 .cat-image {
@@ -24,41 +62,82 @@ body {
     height: auto;
     border-radius: 50%;
     margin-bottom: 1em;
+    opacity: 0;
+    animation: fadeInImage 1s forwards 0.5s;
+}
+
+@keyframes fadeInImage {
+    to {
+        opacity: 1;
+    }
 }
 
 .question {
-    color: #333;
-    font-size: 1.2em;
+    color: #555;
+    font-size: 1.5em;
     margin-bottom: 1em;
+    opacity: 0;
+    animation: fadeInText 1s forwards 1s;
+}
+
+@keyframes fadeInText {
+    to {
+        opacity: 1;
+    }
 }
 
 .buttons {
     display: flex;
     justify-content: space-around;
     margin-top: 1em;
+    opacity: 0;
+    animation: fadeInButtons 1s forwards 1.5s;
+}
+
+@keyframes fadeInButtons {
+    to {
+        opacity: 1;
+    }
 }
 
 .btn {
-    background-color: #ff6f61;
+    background-color: #ffae6d;
     color: white;
     border: none;
     padding: 0.8em 1.5em;
     border-radius: 5px;
     font-size: 1em;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.2s;
     flex: 1;
     margin: 0 0.5em;
 }
 
 .btn:hover {
-    background-color: #ff4f41;
+    background-color: #ff9e56;
+    transform: scale(1.1);
+}
+
+.btn:active {
+    transform: scale(0.9);
 }
 
 .btn.yes {
-    background-color: #ff4f41;
+    background-color: #ff6347;
 }
 
 .btn.no {
-    background-color: #ff9f81;
+    background-color: #ffa07a;
 }
+
+.celebration {
+    text-align: center;
+}
+
+.jumping-cat {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    display: block;
+}
+
